@@ -33,7 +33,13 @@ description: "짧은 소개"
 1. GitHub 저장소에 푸시합니다.
 2. GitHub 저장소의 `Settings > Pages`에서 소스를 `GitHub Actions`로 맞춥니다.
 3. `main` 브랜치에 푸시하면 자동 배포됩니다.
-4. 몇 분 뒤 `https://kjs36202.github.io` 에서 사이트를 확인합니다.
+4. 저장소 이름이 `interstellagram.github.io` 이므로 사이트 주소는 `https://kjs36202.github.io/interstellagram.github.io/` 입니다.
+
+## 주의
+
+- `https://kjs36202.github.io/` 는 현재 저장소 주소가 아닙니다.
+- 루트 주소를 쓰고 싶다면 저장소 이름을 `kjs36202.github.io` 로 바꿔야 합니다.
+- 워크플로의 `Setup Pages` 단계가 `Get Pages site failed` 로 실패하면, 먼저 `Settings > Pages`에서 Pages를 한 번 활성화해야 합니다.
 
 ## 로컬 미리보기
 
