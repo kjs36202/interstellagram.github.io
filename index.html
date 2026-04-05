@@ -1,0 +1,44 @@
+---
+layout: default
+title: 홈
+---
+<section class="hero-card">
+  <div class="hero-copy">
+    <p class="eyebrow">GitHub Pages Blog</p>
+    <h1>기록을 우주처럼 넓게 쌓는 개인 블로그</h1>
+    <p class="hero-text">
+      이 블로그는 GitHub 저장소에서 바로 배포되는 Jekyll 기반 사이트입니다.
+      글은 Markdown으로 작성하고, 디자인은 직접 수정할 수 있게 가볍게 구성했습니다.
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ '/posts/' | relative_url }}">글 보러가기</a>
+      <a class="button button-secondary" href="{{ '/about/' | relative_url }}">블로그 소개</a>
+    </div>
+  </div>
+
+  <aside class="hero-panel">
+    <p class="panel-label">Quick Start</p>
+    <ol class="quick-list">
+      <li><code>_posts</code> 폴더에 새 Markdown 파일 추가</li>
+      <li>제목, 날짜, 설명을 front matter에 작성</li>
+      <li><code>git push</code> 후 GitHub Pages에서 자동 배포 확인</li>
+    </ol>
+  </aside>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Recent Posts</p>
+    <h2>최근 글</h2>
+  </div>
+
+  <div class="post-grid">
+    {% for post in site.posts limit: 6 %}
+      <article class="post-card">
+        <p class="post-card-date">{{ post.date | date: "%Y.%m.%d" }}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>

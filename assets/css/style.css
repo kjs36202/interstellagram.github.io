@@ -1,0 +1,360 @@
+:root {
+  --bg: #f6f0e8;
+  --bg-accent: #e6efe6;
+  --surface: rgba(255, 252, 247, 0.88);
+  --surface-strong: #fffdf9;
+  --text: #1d2a2f;
+  --muted: #5f6b70;
+  --line: rgba(29, 42, 47, 0.12);
+  --brand: #0b7a75;
+  --brand-deep: #0d4f56;
+  --accent: #ff8a5b;
+  --shadow: 0 18px 50px rgba(13, 79, 86, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "IBM Plex Sans KR", sans-serif;
+  line-height: 1.7;
+  background:
+    radial-gradient(circle at top left, rgba(255, 138, 91, 0.2), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(11, 122, 117, 0.18), transparent 28%),
+    linear-gradient(180deg, var(--bg), var(--bg-accent));
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(29, 42, 47, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 42, 47, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(11, 122, 117, 0.08);
+  font-family: "Space Grotesk", monospace;
+  font-size: 0.92em;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: white;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.brand-copy strong,
+.site-nav a,
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+}
+
+.brand-copy small {
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-nav a {
+  padding: 0.65rem 0.95rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.content-area {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero-card,
+.section-block,
+.post-layout {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 28px;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.hero-card::after,
+.section-block::after,
+.post-layout::after {
+  position: absolute;
+  top: -60px;
+  right: -30px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 138, 91, 0.18), transparent 65%);
+  content: "";
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.hero-copy,
+.hero-panel,
+.section-heading,
+.post-hero,
+.post-body,
+.archive-list {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.panel-label,
+.post-card-date,
+.archive-date,
+.post-meta {
+  color: var(--brand-deep);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hero-card h1,
+.section-heading h1,
+.section-heading h2,
+.post-hero h1 {
+  margin: 0.2rem 0 0.8rem;
+  line-height: 1.1;
+}
+
+.hero-card h1 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  max-width: 12ch;
+}
+
+.hero-text,
+.post-summary,
+.section-heading p {
+  max-width: 62ch;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--brand);
+  color: white;
+}
+
+.button-secondary {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-panel {
+  padding: 1.4rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(11, 122, 117, 0.12), rgba(255, 255, 255, 0.7));
+  border: 1px solid rgba(11, 122, 117, 0.12);
+}
+
+.quick-list {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.section-block {
+  padding: 1.75rem;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.post-card,
+.archive-item {
+  padding: 1.2rem;
+  border-radius: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+.post-card h3,
+.archive-item h2 {
+  margin: 0.2rem 0 0.5rem;
+  line-height: 1.2;
+}
+
+.post-card a,
+.archive-item a {
+  color: var(--brand-deep);
+}
+
+.archive-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.archive-item {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.post-layout {
+  padding: 2rem;
+}
+
+.post-body {
+  max-width: 72ch;
+}
+
+.post-body pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #18252b;
+  color: #f6f0e8;
+}
+
+.post-body blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .site-header,
+  .hero-card,
+  .archive-item {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    display: grid;
+  }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 1rem, 1120px);
+    padding-top: 1rem;
+  }
+
+  .hero-card,
+  .section-block,
+  .post-layout {
+    padding: 1.25rem;
+    border-radius: 22px;
+  }
+
+  .hero-card h1 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .brand {
+    align-items: flex-start;
+  }
+}

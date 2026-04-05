@@ -1,0 +1,14 @@
+title: Interstellagram
+description: 기록을 궤도에 올리는 개인 GitHub Pages 블로그
+lang: ko-KR
+timezone: Asia/Seoul
+url: "https://kjs36202.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: /posts/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

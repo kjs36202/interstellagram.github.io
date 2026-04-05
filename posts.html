@@ -1,0 +1,24 @@
+---
+layout: default
+title: 글목록
+permalink: /posts/
+---
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Archive</p>
+    <h1>글목록</h1>
+    <p>새 글은 <code>_posts</code> 폴더에 Markdown 파일로 추가하면 됩니다.</p>
+  </div>
+
+  <div class="archive-list">
+    {% for post in site.posts %}
+      <article class="archive-item">
+        <p class="archive-date">{{ post.date | date: "%Y.%m.%d" }}</p>
+        <div>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p>{{ post.description | default: post.excerpt | strip_html | truncate: 150 }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

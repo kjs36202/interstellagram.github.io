@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="post-layout">
+  <header class="post-hero">
+    <p class="eyebrow">POST</p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%Y.%m.%d" }}</p>
+    {% if page.description %}
+      <p class="post-summary">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>
